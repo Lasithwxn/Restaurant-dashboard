@@ -12,6 +12,11 @@ This system provides a complete solution for restaurant order management with th
 2. **Place Order Page** - Complete order form with live price calculations
 3. **Dashboard Page** - Real-time analytics with charts and order management
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3a7cd6e7-4cc3-42be-88f2-645b845d09dc" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/763c09c3-27d8-4792-bd2a-d8f7cbadfce7" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3acb892c-e373-4a0b-9363-3cd2848a60ac" />
+
+
 ---
 
 ## 🛠️ **Technology Stack**
