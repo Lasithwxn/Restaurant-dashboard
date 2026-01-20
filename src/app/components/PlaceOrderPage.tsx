@@ -14,7 +14,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Plus, Minus, ShoppingCart, ArrowLeft, CheckCircle2 } from 'lucide-react';
-import { projectId, publicAnonKey } from '/utils/supabase/info';
+import { supabaseUrl, supabaseAnonKey } from '@/app/lib/supabase';
 import { toast } from 'sonner';
 
 // Predefined food menu items
@@ -148,29 +148,46 @@ export default function PlaceOrderPage() {
           quantity: quantities[item.name]
         }));
       
+      const endpoint = `${supabaseUrl}/functions/v1/make-server-5c1c75e3/orders`;
+      console.log('Sending order to:', endpoint);
+      console.log('Request body:', {
+        customer_first_name: firstName,
+        customer_last_name: lastName,
+        pickup_type: pickupType,
+        items,
+        extra_charges: parseFloat(extraCharges),
+        notes
+      });
+      
       // Send order to backend
-      const response = await fetch(
-        `https://${projectId}.supabase.co/functions/v1/make-server-5c1c75e3/orders`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${publicAnonKey}`
-          },
-          body: JSON.stringify({
-            customer_first_name: firstName,
-            customer_last_name: lastName,
-            pickup_type: pickupType,
-            items,
-            extra_charges: parseFloat(extraCharges),
-            notes
-          })
-        }
-      );
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${supabaseAnonKey}`
+        },
+        body: JSON.stringify({
+          customer_first_name: firstName,
+          customer_last_name: lastName,
+          pickup_type: pickupType,
+          items,
+          extra_charges: parseFloat(extraCharges),
+          notes
+        })
+      });
+      
+      console.log('Response status:', response.status);
       
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to create order');
+        const errorText = await response.text();
+        console.error('Error response:', errorText);
+        let errorData;
+        try {
+          errorData = JSON.parse(errorText);
+          throw new Error(errorData.error || `Server error: ${response.status}`);
+        } catch {
+          throw new Error(`Failed to create order: ${response.status} ${response.statusText}`);
+        }
       }
       
       const data = await response.json();

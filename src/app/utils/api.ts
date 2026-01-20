@@ -3,17 +3,9 @@
  * Helper functions for interacting with the backend API
  */
 
-import { projectId, publicAnonKey } from '/utils/supabase/info';
+import { supabaseUrl, supabaseAnonKey, projectId, getHeaders } from '@/app/lib/supabase';
 
-const API_BASE_URL = `https://${projectId}.supabase.co/functions/v1/make-server-5c1c75e3`;
-
-/**
- * Common headers for API requests
- */
-const getHeaders = () => ({
-  'Content-Type': 'application/json',
-  'Authorization': `Bearer ${publicAnonKey}`,
-});
+const API_BASE_URL = `${supabaseUrl}/functions/v1/make-server-5c1c75e3`;
 
 /**
  * Order API Interface

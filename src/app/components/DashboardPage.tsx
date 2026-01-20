@@ -36,7 +36,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
-import { projectId, publicAnonKey } from '/utils/supabase/info';
+import { supabaseUrl, supabaseAnonKey } from '@/app/lib/supabase';
 import { toast } from 'sonner';
 
 // Types
@@ -98,10 +98,10 @@ export default function DashboardPage() {
     try {
       // Fetch active orders
       const activeResponse = await fetch(
-        `https://${projectId}.supabase.co/functions/v1/make-server-5c1c75e3/orders/active`,
+        `${supabaseUrl}/functions/v1/make-server-5c1c75e3/orders/active`,
         {
           headers: {
-            'Authorization': `Bearer ${publicAnonKey}`
+            'Authorization': `Bearer ${supabaseAnonKey}`
           }
         }
       );
@@ -115,10 +115,10 @@ export default function DashboardPage() {
       
       // Fetch completed orders
       const completedResponse = await fetch(
-        `https://${projectId}.supabase.co/functions/v1/make-server-5c1c75e3/orders/completed`,
+        `${supabaseUrl}/functions/v1/make-server-5c1c75e3/orders/completed`,
         {
           headers: {
-            'Authorization': `Bearer ${publicAnonKey}`
+            'Authorization': `Bearer ${supabaseAnonKey}`
           }
         }
       );
@@ -132,10 +132,10 @@ export default function DashboardPage() {
       
       // Fetch analytics
       const analyticsResponse = await fetch(
-        `https://${projectId}.supabase.co/functions/v1/make-server-5c1c75e3/analytics`,
+        `${supabaseUrl}/functions/v1/make-server-5c1c75e3/analytics`,
         {
           headers: {
-            'Authorization': `Bearer ${publicAnonKey}`
+            'Authorization': `Bearer ${supabaseAnonKey}`
           }
         }
       );
@@ -163,11 +163,11 @@ export default function DashboardPage() {
   const handleCompleteOrder = async (orderId: string) => {
     try {
       const response = await fetch(
-        `https://${projectId}.supabase.co/functions/v1/make-server-5c1c75e3/orders/${orderId}/complete`,
+        `${supabaseUrl}/functions/v1/make-server-5c1c75e3/orders/${orderId}/complete`,
         {
           method: 'PUT',
           headers: {
-            'Authorization': `Bearer ${publicAnonKey}`
+            'Authorization': `Bearer ${supabaseAnonKey}`
           }
         }
       );

@@ -1,0 +1,161 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║        🍽️  RESTAURANT DASHBOARD - QUICK START GUIDE 🍽️                   ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+📋 YOUR APP IS READY TO USE!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ WHAT'S INCLUDED
+
+  ✔ Frontend: React + TypeScript + Tailwind CSS
+  ✔ Backend: Node.js Express API
+  ✔ Database: Local in-memory (can upgrade to Supabase)
+  ✔ Charts: Real-time analytics with Recharts
+  ✔ UI: Professional design with Radix UI components
+  ✔ Routing: React Router (Home → Order → Dashboard)
+  ✔ Notifications: Toast messages with Sonner
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 TO START THE APP (3 seconds)
+
+  Open terminal and run:
+
+    npm start
+
+  Then open your browser to:
+
+    http://localhost:5174
+
+  That's it! 🎉
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📱 WHAT YOU'LL SEE
+
+  HOME PAGE
+  ├─ Welcome screen with gradient UI
+  ├─ "Place Order" button → Create new orders
+  └─ "Dashboard" button → View orders & analytics
+
+  PLACE ORDER PAGE
+  ├─ Enter customer name
+  ├─ Choose pickup type (Dine-In / Take-Out)
+  ├─ Select food items with quantities
+  ├─ Live price calculation:
+  │  └─ Dine-In: +10% service charge
+  │  └─ Take-Out: No service charge
+  └─ Submit order → Saved to database!
+
+  DASHBOARD PAGE
+  ├─ Active Orders section
+  ├─ Completed Orders section
+  ├─ Analytics cards:
+  │  ├─ Total Orders
+  │  ├─ Total Revenue
+  │  ├─ Dine-In vs Take-Out breakdown
+  │  └─ Charts:
+  │     ├─ Revenue by type (pie chart)
+  │     ├─ Top ordered items (bar chart)
+  │     └─ Orders over time (line chart)
+  └─ Mark orders as complete
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🧪 TEST IT
+
+  Step 1: Create an Order
+  ────────────────────────
+    1. Click "Place Order"
+    2. Fill in: Lasith Bandara
+    3. Select: Dine-In
+    4. Click: +2 times on "Pepperoni Pizza"
+    5. Click: "Place Order"
+    6. See: "Order placed successfully!" ✅
+
+  Step 2: View Dashboard
+  ────────────────────────
+    1. Click "Dashboard"
+    2. See your order in "Active Orders"
+    3. Check analytics cards showing totals
+    4. Charts updating with live data ✅
+
+  Step 3: Mark Complete
+  ────────────────────────
+    1. Find your order in Active Orders
+    2. Click "Mark Complete"
+    3. Order moves to "Completed Orders" ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💾 DATA STORAGE
+
+  Currently: In-memory (local backend)
+  ├─ Data stored while app is running
+  ├─ Perfect for testing
+  └─ Resets when you stop the app
+
+  To make data persistent:
+  ├─ Upgrade to Supabase (see SUPABASE_SETUP_GUIDE.md)
+  ├─ Data saves to real database
+  └─ Access from anywhere!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔧 AVAILABLE COMMANDS
+
+  npm start          ← Start BOTH backend & frontend
+  npm run backend    ← Start backend only (localhost:3001)
+  npm run dev        ← Start frontend only (localhost:5173)
+  npm run build      ← Build for production
+  npm install        ← Install dependencies
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📂 IMPORTANT FILES
+
+  .env                          ← Database configuration (NEVER commit)
+  backend-server.cjs            ← Local API backend
+  src/app/components/           ← React pages
+  ├─ HomePage.tsx              ← Home page
+  ├─ PlaceOrderPage.tsx         ← Order form
+  └─ DashboardPage.tsx          ← Analytics
+  SUPABASE_SETUP_GUIDE.md       ← How to use real Supabase
+  SUPABASE_SETUP.sql            ← Database schema
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🆘 COMMON ISSUES
+
+  Issue: "Port already in use"
+  Fix: pkill -f "vite"; pkill -f "node"; npm start
+
+  Issue: "Failed to place order"
+  Fix: Check F12 console for errors, make sure backend is running
+
+  Issue: "Dashboard not loading"
+  Fix: Refresh the page, restart npm start
+
+  Issue: "Something's not working"
+  Fix: Check the browser console (F12) for error messages
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎓 NEXT STEPS
+
+  1. Run: npm start
+  2. Create a test order
+  3. View dashboard
+  4. Check console for logs
+  5. Ready to develop! 🚀
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ YOU'RE ALL SET!
+
+  Command:  npm start
+  URL:      http://localhost:5174
+  Enjoy!    🎉
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
