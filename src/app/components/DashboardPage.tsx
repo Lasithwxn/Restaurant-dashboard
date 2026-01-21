@@ -98,7 +98,7 @@ export default function DashboardPage() {
     try {
       // Fetch active orders
       const activeResponse = await fetch(
-        `${supabaseUrl}/functions/v1/make-server-5c1c75e3/orders/active`,
+        `${supabaseUrl}/make-server-5c1c75e3/orders/active`,
         {
           headers: {
             'Authorization': `Bearer ${supabaseAnonKey}`
@@ -115,7 +115,7 @@ export default function DashboardPage() {
       
       // Fetch completed orders
       const completedResponse = await fetch(
-        `${supabaseUrl}/functions/v1/make-server-5c1c75e3/orders/completed`,
+        `${supabaseUrl}/make-server-5c1c75e3/orders/completed`,
         {
           headers: {
             'Authorization': `Bearer ${supabaseAnonKey}`
@@ -132,7 +132,7 @@ export default function DashboardPage() {
       
       // Fetch analytics
       const analyticsResponse = await fetch(
-        `${supabaseUrl}/functions/v1/make-server-5c1c75e3/analytics`,
+        `${supabaseUrl}/make-server-5c1c75e3/analytics`,
         {
           headers: {
             'Authorization': `Bearer ${supabaseAnonKey}`
@@ -163,7 +163,7 @@ export default function DashboardPage() {
   const handleCompleteOrder = async (orderId: string) => {
     try {
       const response = await fetch(
-        `${supabaseUrl}/functions/v1/make-server-5c1c75e3/orders/${orderId}/complete`,
+        `${supabaseUrl}/make-server-5c1c75e3/orders/${orderId}/complete`,
         {
           method: 'PUT',
           headers: {

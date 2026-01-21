@@ -73,6 +73,7 @@
     "@vitejs/plugin-react": "4.7.0",
     "concurrently": "^8.2.2",
     "express": "^4.22.1",
+    "supabase": "^2.72.8",
     "tailwindcss": "4.1.12",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",

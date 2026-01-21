@@ -148,7 +148,7 @@ export default function PlaceOrderPage() {
           quantity: quantities[item.name]
         }));
       
-      const endpoint = `${supabaseUrl}/functions/v1/make-server-5c1c75e3/orders`;
+      const endpoint = `${supabaseUrl}/make-server-5c1c75e3/orders`;
       console.log('Sending order to:', endpoint);
       console.log('Request body:', {
         customer_first_name: firstName,
